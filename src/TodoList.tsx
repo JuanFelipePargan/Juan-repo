@@ -20,6 +20,10 @@ export default function TodoList() {
           throw new Error(`Failed to fetch: ${res.status}`);
         }
         const data = await res.json();
+
+        // ✅ Confirm backend response in browser console
+        console.log("✅ Todos from backend:", data);
+
         setTodos(data);
       } catch (err: any) {
         setError(err.message);
@@ -36,7 +40,7 @@ export default function TodoList() {
 
   return (
     <div>
-      <h2>Todo List</h2>
+      <h2>📝 To-Do List</h2>
       <ul>
         {todos.map(todo => (
           <li key={todo.id}>{todo.task}</li>
